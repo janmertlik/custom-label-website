@@ -1,0 +1,4 @@
+.DS_Store
+# internal handover package - not for the public repo
+handover-doc/
+.claude/
