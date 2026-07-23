@@ -157,6 +157,25 @@ img{max-width:100%;display:block;}
 .photo-frame img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:var(--r-md);}
 .photo-caption{margin-top:16px;text-align:center;}
 
+/* stacked photo cards (hero alt 06): cards drop onto the pile one by one */
+.card-stack{position:relative;display:inline-block;width:min(370px,86vw);aspect-ratio:4/5;}
+.stack-card{position:absolute;inset:0;background:#fff;padding:10px;border-radius:var(--r-lg);
+  box-shadow:var(--sh-2);transform:rotate(var(--rot,0deg));}
+.stack-card img{width:100%;height:100%;object-fit:cover;border-radius:var(--r-md);}
+.stack-card.c1{--rot:-3deg;}
+.stack-card.c2{--rot:2.5deg;opacity:0;}
+.stack-card.c3{--rot:-1.5deg;opacity:0;}
+.card-stack.play .c2{animation:cardDrop .6s var(--ease) .9s forwards;}
+.card-stack.play .c3{animation:cardDrop .6s var(--ease) 2s forwards;}
+@keyframes cardDrop{
+  0%{opacity:0;transform:translateY(-90px) rotate(var(--rot)) scale(1.06);}
+  70%{opacity:1;transform:translateY(8px) rotate(var(--rot)) scale(1);}
+  100%{opacity:1;transform:translateY(0) rotate(var(--rot));}
+}
+@media(prefers-reduced-motion:reduce){
+  .stack-card.c2,.stack-card.c3{opacity:1;animation:none !important;}
+}
+
 /* Compact page hero */
 .page-hero{padding:76px 0 64px;}
 .page-hero h1{font-size:clamp(2.2rem,5vw,3.4rem);margin:14px 0 14px;}

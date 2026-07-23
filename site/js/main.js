@@ -98,6 +98,25 @@
     }, { passive: true });
   }
 
+  /* ---------- Stacked photo cards (hero alt 06) ---------- */
+  var stacks = document.querySelectorAll('.card-stack');
+  if (stacks.length) {
+    var playStack = function (el) { el.classList.add('play'); };
+    if ('IntersectionObserver' in window) {
+      var so = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting || en.boundingClientRect.top < 0) {
+            so.unobserve(en.target);
+            playStack(en.target);
+          }
+        });
+      }, { threshold: 0.35 });
+      stacks.forEach(function (el) { so.observe(el); });
+    }
+    /* failsafe: play once shortly after load even if the observer stalls */
+    setTimeout(function () { stacks.forEach(playStack); }, 3500);
+  }
+
   /* ---------- Tabs ---------- */
   document.querySelectorAll('[data-tabs]').forEach(function (t) {
     t.querySelectorAll('button').forEach(function (b) {
