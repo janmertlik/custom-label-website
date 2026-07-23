@@ -177,6 +177,21 @@ img{max-width:100%;display:block;}
 .split-visual img{max-height:320px;width:auto;display:inline-block;filter:drop-shadow(0 10px 16px rgba(0,0,0,.14));transition:transform .35s var(--ease);}
 .split-visual img:hover{transform:rotate(-2deg) scale(1.02);}
 
+/* ---------- Product visual treatments (core-idea explorations) ---------- */
+/* A · stitched swatch: canvas tile with a sewn border, like a fabric sample card */
+.swatch-tile{position:relative;display:inline-block;background:var(--g100);border:1px solid var(--g200);
+  border-radius:var(--r-lg);padding:38px 44px 46px;}
+.swatch-tile::before{content:"";position:absolute;inset:12px;border:2px dashed var(--g300);
+  border-radius:var(--r-md);pointer-events:none;}
+.swatch-tile img{max-height:300px;width:auto;display:block;margin:0 auto;position:relative;
+  filter:drop-shadow(0 10px 14px rgba(0,0,0,.16));transition:transform .3s var(--ease);}
+.swatch-tile:hover img{transform:rotate(-2deg) scale(1.03);}
+.swatch-tile .spec-chip{position:absolute;left:50%;bottom:-13px;transform:translateX(-50%);white-space:nowrap;}
+/* B · solid shadow stamp: hard offset silhouette, printed-poster feel */
+.stamp-visual img{max-height:320px;width:auto;display:inline-block;
+  filter:drop-shadow(16px 18px 0 var(--black));transition:filter .25s var(--ease),transform .25s var(--ease);}
+.stamp-visual:hover img{filter:drop-shadow(8px 10px 0 var(--black));transform:translate(5px,5px);}
+
 /* ---------- Cards ---------- */
 .grid{display:grid;gap:20px;}
 .g2{grid-template-columns:repeat(2,1fr);}
