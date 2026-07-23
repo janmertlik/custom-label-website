@@ -187,12 +187,6 @@ img{max-width:100%;display:block;}
   filter:drop-shadow(0 10px 14px rgba(0,0,0,.16));transition:transform .3s var(--ease);}
 .swatch-tile:hover img{transform:rotate(-2deg) scale(1.03);}
 .swatch-tile .spec-chip{position:absolute;left:50%;bottom:-13px;transform:translateX(-50%);white-space:nowrap;}
-/* B · solid shadow stamp: enlarged solid silhouette centered behind the product */
-.stamp-wrap{position:relative;display:inline-block;}
-.stamp-wrap > img{position:relative;z-index:1;max-height:320px;width:auto;display:block;}
-.stamp-wrap .shadow-copy{position:absolute;top:0;left:0;width:100%;height:100%;z-index:0;
-  filter:brightness(0);transform:scale(1.13);transform-origin:center;transition:transform .3s var(--ease);}
-.stamp-visual:hover .shadow-copy{transform:scale(1.18);}
 
 /* ---------- Cards ---------- */
 .grid{display:grid;gap:20px;}
