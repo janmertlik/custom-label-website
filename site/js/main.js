@@ -98,10 +98,38 @@
     }, { passive: true });
   }
 
-  /* ---------- Stacked photo cards (hero alt 06) ---------- */
+  /* ---------- Stacked photo cards (hero alts 06 and 07) ---------- */
   var stacks = document.querySelectorAll('.card-stack');
   if (stacks.length) {
-    var playStack = function (el) { el.classList.add('play'); };
+    /* .loop stacks cycle forever: reveal hidden cards in order, then recycle
+       the bottom card of the pile back onto the top, one drop per beat */
+    var startLoop = function (el) {
+      if (el.dataset.looping) return;
+      el.dataset.looping = '1';
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        el.querySelectorAll('.stack-card').forEach(function (c) { c.style.opacity = '1'; });
+        return;
+      }
+      setInterval(function () {
+        var cards = el.querySelectorAll('.stack-card');
+        for (var i = 0; i < cards.length; i++) {
+          if (!cards[i].classList.contains('drop') && getComputedStyle(cards[i]).opacity === '0') {
+            cards[i].classList.add('drop');
+            return;
+          }
+        }
+        var bottom = el.firstElementChild;
+        bottom.classList.remove('drop');
+        bottom.style.opacity = '0';
+        el.appendChild(bottom);
+        void bottom.offsetWidth;
+        bottom.classList.add('drop');
+      }, 1200);
+    };
+    var playStack = function (el) {
+      if (el.classList.contains('loop')) startLoop(el);
+      else el.classList.add('play');
+    };
     if ('IntersectionObserver' in window) {
       var so = new IntersectionObserver(function (entries) {
         entries.forEach(function (en) {

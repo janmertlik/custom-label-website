@@ -171,13 +171,8 @@ img{max-width:100%;display:block;}
 .stack-card.c5{--rot:-1.8deg;opacity:0;}
 .stack-card.c6{--rot:2.2deg;opacity:0;}
 .stack-card.c7{--rot:-2.8deg;opacity:0;}
-/* slow cadence: a new card every 2 seconds (hero alt 07) */
-.card-stack.slow.play .c2{animation:cardDrop .6s var(--ease) 2s forwards;}
-.card-stack.slow.play .c3{animation:cardDrop .6s var(--ease) 4s forwards;}
-.card-stack.slow.play .c4{animation:cardDrop .6s var(--ease) 6s forwards;}
-.card-stack.slow.play .c5{animation:cardDrop .6s var(--ease) 8s forwards;}
-.card-stack.slow.play .c6{animation:cardDrop .6s var(--ease) 10s forwards;}
-.card-stack.slow.play .c7{animation:cardDrop .6s var(--ease) 12s forwards;}
+/* looping stack (hero alt 07): JS recycles the bottom card to the top, .drop runs one fall */
+.stack-card.drop{animation:cardDrop .6s var(--ease) forwards;}
 @keyframes cardDrop{
   0%{opacity:0;transform:translateY(-90px) rotate(var(--rot)) scale(1.06);}
   70%{opacity:1;transform:translateY(8px) rotate(var(--rot)) scale(1);}
