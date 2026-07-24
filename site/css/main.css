@@ -167,13 +167,24 @@ img{max-width:100%;display:block;}
 .stack-card.c3{--rot:-1.5deg;opacity:0;}
 .card-stack.play .c2{animation:cardDrop .6s var(--ease) .9s forwards;}
 .card-stack.play .c3{animation:cardDrop .6s var(--ease) 2s forwards;}
+.stack-card.c4{--rot:3deg;opacity:0;}
+.stack-card.c5{--rot:-1.8deg;opacity:0;}
+.stack-card.c6{--rot:2.2deg;opacity:0;}
+.stack-card.c7{--rot:-2.8deg;opacity:0;}
+/* slow cadence: a new card every 2 seconds (hero alt 07) */
+.card-stack.slow.play .c2{animation:cardDrop .6s var(--ease) 2s forwards;}
+.card-stack.slow.play .c3{animation:cardDrop .6s var(--ease) 4s forwards;}
+.card-stack.slow.play .c4{animation:cardDrop .6s var(--ease) 6s forwards;}
+.card-stack.slow.play .c5{animation:cardDrop .6s var(--ease) 8s forwards;}
+.card-stack.slow.play .c6{animation:cardDrop .6s var(--ease) 10s forwards;}
+.card-stack.slow.play .c7{animation:cardDrop .6s var(--ease) 12s forwards;}
 @keyframes cardDrop{
   0%{opacity:0;transform:translateY(-90px) rotate(var(--rot)) scale(1.06);}
   70%{opacity:1;transform:translateY(8px) rotate(var(--rot)) scale(1);}
   100%{opacity:1;transform:translateY(0) rotate(var(--rot));}
 }
 @media(prefers-reduced-motion:reduce){
-  .stack-card.c2,.stack-card.c3{opacity:1;animation:none !important;}
+  .stack-card.c2,.stack-card.c3,.stack-card.c4,.stack-card.c5,.stack-card.c6,.stack-card.c7{opacity:1;animation:none !important;}
 }
 
 /* Compact page hero */
