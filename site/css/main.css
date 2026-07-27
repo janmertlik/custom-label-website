@@ -346,8 +346,11 @@ img{max-width:100%;display:block;}
 .spread-media .photo-frame img{aspect-ratio:4/3;}
 .spread-media .photo-frame img.portrait{aspect-ratio:4/5;}
 .spread-media .pin-card{position:absolute;right:-6px;bottom:-8px;width:132px;background:#fff;padding:8px;border-radius:var(--r-md);box-shadow:var(--sh-2);transform:rotate(4deg);}
-.spread-media .pin-card .tilebg{background:var(--g50);border-radius:var(--r-xs);padding:10px;}
+.spread-media .pin-card .tilebg{display:block;background:var(--g50);border-radius:var(--r-xs);padding:10px;}
 .spread-media .pin-card img{width:100%;height:auto;display:block;}
+.case-spread h3{font-size:1.6rem;margin:14px 0 12px;}
+.case-spread p{color:var(--g600);margin:0;max-width:56ch;}
+.case-spread .facts{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px;}
 @media(max-width:1020px){
   .case-spread{grid-template-columns:1fr;gap:34px;}
   .case-spread.flip .spread-media{order:0;}
