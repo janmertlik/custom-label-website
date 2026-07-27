@@ -288,6 +288,18 @@ img{max-width:100%;display:block;}
 .poster-card h3{color:#fff;font-size:1.35rem;margin-bottom:5px;}
 .poster-card .scrim p{color:var(--ondark);font-size:.92rem;margin:0;}
 
+/* polaroid cards: white-bordered print with a drop shadow, text below */
+.polaroid-card{display:block;transition:transform var(--t) var(--ease);}
+.polaroid-card:hover{transform:translateY(-4px);}
+.polaroid{position:relative;display:block;background:#fff;padding:10px 10px 26px;border-radius:var(--r-md);
+  box-shadow:var(--sh-2);transform:rotate(var(--tilt,-1.5deg));transition:transform .3s var(--ease),box-shadow var(--t);}
+.polaroid-card:hover .polaroid{transform:rotate(0deg);box-shadow:var(--sh-3);}
+.polaroid img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:2px;display:block;}
+.polaroid .chip{position:absolute;top:20px;left:20px;z-index:1;}
+.polaroid-card .pad{padding:20px 8px 0;}
+.polaroid-card h3{font-size:1.3rem;margin-bottom:6px;}
+.polaroid-card .pad p{color:var(--g600);font-size:.95rem;margin:0;}
+
 /* spotlight mosaic: one big photo, two supporting */
 .mosaic{display:grid;grid-template-columns:1.35fr 1fr;grid-template-rows:repeat(2,265px);gap:20px;}
 .mosaic .poster-card{height:100%;}

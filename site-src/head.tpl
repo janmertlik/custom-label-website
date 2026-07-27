@@ -6,6 +6,6 @@
 <title>__TITLE__</title>
 <meta name="description" content="__DESC__">
 <link rel="icon" type="image/png" href="assets/logos/vf-logo-black.png">
-<link rel="stylesheet" href="css/main.css?v=23">
+<link rel="stylesheet" href="css/main.css?v=24">
 </head>
 <body>
