@@ -134,7 +134,6 @@ img{max-width:100%;display:block;}
 .hero-visual{text-align:center;position:relative;}
 
 /* ---------- Hero alternatives (light explorations) ---------- */
-.alt-marker{background:var(--g100);border-top:2px dashed var(--g300);border-bottom:2px dashed var(--g300);padding:10px 0;text-align:center;}
 .photo-frame{background:#fff;padding:10px;border-radius:var(--r-lg);box-shadow:var(--sh-2);display:inline-block;transform:rotate(2deg);max-width:400px;width:100%;}
 .photo-frame .ph{aspect-ratio:4/5;background:var(--g150);border-radius:var(--r-md);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;text-align:center;padding:24px;}
 .photo-frame .ph .mono-label{color:var(--g500);}
@@ -191,17 +190,6 @@ img{max-width:100%;display:block;}
 .split-visual{text-align:center;}
 .split-visual img{max-height:320px;width:auto;display:inline-block;filter:drop-shadow(0 10px 16px rgba(0,0,0,.14));transition:transform .35s var(--ease);}
 .split-visual img:hover{transform:rotate(-2deg) scale(1.02);}
-
-/* ---------- Product visual treatments (core-idea explorations) ---------- */
-/* A · stitched swatch: canvas tile with a sewn border, like a fabric sample card */
-.swatch-tile{position:relative;display:inline-block;background:var(--g100);border:1px solid var(--g200);
-  border-radius:var(--r-lg);padding:38px 44px 46px;}
-.swatch-tile::before{content:"";position:absolute;inset:12px;border:2px dashed var(--g300);
-  border-radius:var(--r-md);pointer-events:none;}
-.swatch-tile img{max-height:300px;width:auto;display:block;margin:0 auto;position:relative;
-  filter:drop-shadow(0 10px 14px rgba(0,0,0,.16));transition:transform .3s var(--ease);}
-.swatch-tile:hover img{transform:rotate(-2deg) scale(1.03);}
-.swatch-tile .spec-chip{position:absolute;left:50%;bottom:-13px;transform:translateX(-50%);white-space:nowrap;}
 
 /* ---------- Cards ---------- */
 .grid{display:grid;gap:20px;}
