@@ -273,6 +273,33 @@ img{max-width:100%;display:block;}
 .case-card h3{font-size:1.3rem;margin-bottom:6px;}
 .case-card p{color:var(--g600);font-size:.95rem;margin:0;}
 
+/* review marker for stacked design alternatives */
+.alt-marker{background:var(--g100);border-top:2px dashed var(--g300);border-bottom:2px dashed var(--g300);padding:10px 0;text-align:center;}
+
+/* poster cards: the photo IS the card, text on a bottom scrim */
+.poster-card{position:relative;display:block;border-radius:var(--r-lg);overflow:hidden;background:var(--g900);
+  transition:transform var(--t) var(--ease),box-shadow var(--t);}
+.poster-card:hover{transform:translateY(-3px);box-shadow:var(--sh-3);}
+.poster-card img{width:100%;height:480px;object-fit:cover;display:block;transition:transform .5s var(--ease);}
+.poster-card:hover img{transform:scale(1.04);}
+.poster-card .chip{position:absolute;top:16px;left:16px;z-index:2;}
+.poster-card .scrim{position:absolute;left:0;right:0;bottom:0;z-index:1;padding:90px 22px 22px;
+  background:linear-gradient(to top,rgba(0,0,0,.85) 0%,rgba(0,0,0,.45) 55%,rgba(0,0,0,0) 100%);}
+.poster-card h3{color:#fff;font-size:1.35rem;margin-bottom:5px;}
+.poster-card .scrim p{color:var(--ondark);font-size:.92rem;margin:0;}
+
+/* spotlight mosaic: one big photo, two supporting */
+.mosaic{display:grid;grid-template-columns:1.35fr 1fr;grid-template-rows:repeat(2,265px);gap:20px;}
+.mosaic .poster-card{height:100%;}
+.mosaic .poster-card img{height:100%;}
+.mosaic .poster-card.main{grid-row:1 / -1;}
+@media(max-width:860px){
+  .poster-card img{height:400px;}
+  .mosaic{grid-template-columns:1fr;grid-template-rows:none;}
+  .mosaic .poster-card img{height:260px;}
+  .mosaic .poster-card.main img{height:380px;}
+}
+
 /* in-the-wild photo variants */
 .case-card .visual.photo{padding:0;background:none;}
 .case-card .visual.photo img{width:100%;height:230px;object-fit:cover;max-height:none;filter:none;}
