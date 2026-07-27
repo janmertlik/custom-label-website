@@ -176,6 +176,13 @@ img{max-width:100%;display:block;}
 .logo-wall img{height:42px;width:auto;opacity:.75;transition:opacity var(--t),transform var(--t) var(--ease);}
 .logo-wall img:hover{opacity:1;transform:translateY(-2px);}
 .logo-wall.tall img{height:56px;}
+/* home trust bar: even 5 x 2 grid on desktop, 2-up on small screens */
+.logo-wall.logo-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:40px 30px;align-items:center;justify-items:center;max-width:1020px;margin:0 auto;}
+.logo-wall.logo-grid img{max-width:120px;object-fit:contain;}
+@media(max-width:760px){
+  .logo-wall.logo-grid{grid-template-columns:repeat(2,1fr);gap:30px 26px;}
+  .logo-wall.logo-grid img{height:36px;max-width:130px;}
+}
 
 /* ---------- Two-column feature ---------- */
 .split{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;}
