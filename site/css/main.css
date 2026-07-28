@@ -191,6 +191,11 @@ img{max-width:100%;display:block;}
 .split-visual img{max-height:320px;width:auto;display:inline-block;filter:drop-shadow(0 10px 16px rgba(0,0,0,.14));transition:transform .35s var(--ease);}
 .split-visual img:hover{transform:rotate(-2deg) scale(1.02);}
 
+/* ---------- Video embed ---------- */
+.video-embed{position:relative;width:100%;aspect-ratio:16/9;border-radius:var(--r-lg);overflow:hidden;
+  box-shadow:var(--sh-2);background:var(--canvas-dark);}
+.video-embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+
 /* ---------- Cards ---------- */
 .grid{display:grid;gap:20px;}
 .g2{grid-template-columns:repeat(2,1fr);}
@@ -305,6 +310,14 @@ img{max-width:100%;display:block;}
 .polaroid .pcap{display:block;padding:16px 10px 2px;text-align:left;}
 .polaroid .pcap h3{font-size:1.25rem;margin-bottom:5px;}
 .polaroid .pcap p{color:var(--g600);font-size:.92rem;margin:0;}
+
+/* overlay polaroid: caption on the photo over a bottom gradient, inside the white frame */
+.polaroid .pshot{position:relative;display:block;overflow:hidden;border-radius:2px;}
+.polaroid .pshot img{border-radius:0;}
+.polaroid .pshot .pscrim{position:absolute;left:0;right:0;bottom:0;padding:70px 16px 16px;text-align:left;
+  background:linear-gradient(to top,rgba(0,0,0,.85) 0%,rgba(0,0,0,.45) 55%,rgba(0,0,0,0) 100%);}
+.polaroid .pshot h3{color:#fff;font-size:1.25rem;margin-bottom:5px;}
+.polaroid .pshot .pscrim p{color:var(--ondark);font-size:.9rem;margin:0;}
 
 /* spotlight mosaic: one big photo, two supporting */
 .mosaic{display:grid;grid-template-columns:1.35fr 1fr;grid-template-rows:repeat(2,265px);gap:20px;}
