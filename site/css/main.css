@@ -300,6 +300,12 @@ img{max-width:100%;display:block;}
 .polaroid-card h3{font-size:1.3rem;margin-bottom:6px;}
 .polaroid-card .pad p{color:var(--g600);font-size:.95rem;margin:0;}
 
+/* labeled polaroid: the caption lives on the print's bottom strip */
+.polaroid.labeled{padding:10px 10px 16px;}
+.polaroid .pcap{display:block;padding:16px 10px 2px;text-align:left;}
+.polaroid .pcap h3{font-size:1.25rem;margin-bottom:5px;}
+.polaroid .pcap p{color:var(--g600);font-size:.92rem;margin:0;}
+
 /* spotlight mosaic: one big photo, two supporting */
 .mosaic{display:grid;grid-template-columns:1.35fr 1fr;grid-template-rows:repeat(2,265px);gap:20px;}
 .mosaic .poster-card{height:100%;}
