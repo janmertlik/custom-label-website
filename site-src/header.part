@@ -1,6 +1,6 @@
 <header class="site-header">
   <a class="brand" href="index.html" aria-label="Custom Label by VOLTFUSE, home">
-    <img src="assets/logos/logo-banner-white.png" alt="Custom Label by VOLTFUSE">
+    <img src="assets/logos/logo-text-black.png" alt="Custom Label">
   </a>
   <div class="header-right">
     <nav class="site-nav" id="siteNav" aria-label="Primary">
