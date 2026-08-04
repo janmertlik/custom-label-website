@@ -107,13 +107,15 @@ img{max-width:100%;display:block;}
   display:flex;align-items:center;justify-content:space-between;gap:18px;
   padding:14px 22px 14px 0;border-bottom:3px solid var(--signal);}
 .site-header{--content-left:max(26px, calc((100vw - var(--maxw)) / 2 + 26px));}
-/* White banner bar with the brand chevron notch, running from the viewport
-   edge; the text logo starts exactly on the content line (3px compensates
-   the image's internal inset). */
-.site-header .brand{display:flex;align-items:center;flex:0 0 auto;height:26px;background:#fff;
-  padding-left:calc(var(--content-left) - 3px);padding-right:26px;
-  clip-path:polygon(0 0,100% 0,calc(100% - 14px) 50%,100% 100%,0 100%);}
-.site-header .brand img{height:26px;width:120px;object-fit:cover;object-position:left center;display:block;}
+/* The logo image carries the banner's white chevron tail and the white
+   "by VOLTFUSE" tag (for the black header). A straight white bar runs from
+   the viewport edge and hands off to the image's tail exactly where the
+   black wordmark ends; the text starts on the content line. */
+.site-header .brand{position:relative;display:flex;align-items:center;flex:0 0 auto;height:26px;
+  padding-left:calc(var(--content-left) - 3px);}
+.site-header .brand::before{content:"";position:absolute;left:0;top:0;height:26px;background:#fff;
+  width:calc(var(--content-left) + 117px);}
+.site-header .brand img{position:relative;height:26px;width:auto;max-width:none;display:block;}
 .site-nav{display:flex;align-items:center;gap:26px;}
 .site-nav a{font-family:var(--fb-display);text-transform:uppercase;font-size:.88rem;letter-spacing:.06em;color:var(--g300);transition:color var(--t);}
 .site-nav a:hover{color:#fff;text-decoration:none;}
