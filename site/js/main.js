@@ -57,7 +57,7 @@
         }
       });
       if (!pending) clearInterval(failsafe);
-    }, 1200);
+    }, 2500);
   } else {
     reveals.forEach(function (el) { el.classList.add('in'); });
   }
@@ -124,7 +124,7 @@
         el.appendChild(bottom);
         void bottom.offsetWidth;
         bottom.classList.add('drop');
-      }, 1200);
+      }, 2500);
     };
     var playStack = function (el) {
       if (el.classList.contains('loop')) startLoop(el);
