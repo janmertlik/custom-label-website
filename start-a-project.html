@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Start a Project · Custom Label by VOLTFUSE</title>
+<meta name="description" content="Pick a style, choose your details, and get a free design proof within 24 hours. No commitment.">
+<link rel="icon" type="image/png" href="assets/logos/vf-logo-black.png">
+<link rel="stylesheet" href="css/main.css?v=39">
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="index.html" aria-label="Custom Label by VOLTFUSE, home">
+    <img src="assets/logos/logo-text-black.png" alt="Custom Label">
+  </a>
+  <div class="header-right">
+    <nav class="site-nav" id="siteNav" aria-label="Primary">
+      <a href="what-we-make.html">Products</a>
+      <a href="our-work.html">Our Work</a>
+      <a href="how-it-works.html">Process</a>
+      <a href="contact.html">Contact</a>
+      <div class="mobile-cta"><a class="btn btn-signal" href="start-a-project.html">Start a Project</a></div>
+    </nav>
+    <a class="btn btn-signal btn-sm" href="start-a-project.html">Start a Project</a>
+    <button class="menu-btn" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<main>
+
+  <!-- Intro -->
+  <section class="band light page-hero">
+    <div class="wrap">
+      <span class="eyebrow">Let's build it</span>
+      <h1>Start your product<br>in thirty seconds.</h1>
+      <p class="sub">Pick a style, add your details, and we will send a free proof within 24 hours. No commitment.</p>
+    </div>
+  </section>
+
+  <!-- The Builder -->
+  <section class="band white">
+    <div class="wrap">
+      <div class="builder reveal" id="builder">
+        <div class="bgrid">
+
+          <!-- Stage -->
+          <div class="stage">
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:18px">
+              <span class="flag">Build your product</span>
+              <span class="mono-label">Free proof in 24 hours</span>
+            </div>
+            <div class="stage-img">
+              <img loading="lazy" decoding="async" src="assets/products/Cap/5-Panel.webp" alt="5-Panel preview">
+            </div>
+            <p class="panel-label" style="margin-top:0">Select your style</p>
+            <div class="opt-grid">
+              <button class="opt sel" data-style="5-Panel" data-cat="cap"><img loading="lazy" decoding="async" src="assets/products/Cap/5-Panel.webp" alt=""><span class="ot">5-Panel</span></button>
+              <button class="opt" data-style="Trucker" data-cat="cap"><img loading="lazy" decoding="async" src="assets/products/Cap/Classic-Trucker.webp" alt=""><span class="ot">Trucker</span></button>
+              <button class="opt" data-style="Curved Classic" data-cat="cap"><img loading="lazy" decoding="async" src="assets/products/Cap/Curved-Classic.webp" alt=""><span class="ot">Curved Classic</span></button>
+              <button class="opt" data-style="Ribbed Beanie" data-cat="beanie"><img loading="lazy" decoding="async" src="assets/products/Beanie/Ribbed-Beanie.webp" alt=""><span class="ot">Ribbed Beanie</span></button>
+              <button class="opt" data-style="Fisherman Beanie" data-cat="beanie"><img loading="lazy" decoding="async" src="assets/products/Beanie/Fisherman.webp" alt=""><span class="ot">Fisherman Beanie</span></button>
+              <button class="opt" data-style="Bucket" data-cat="facewear"><img loading="lazy" decoding="async" src="assets/products/Cap/Bucket.webp" alt=""><span class="ot">Bucket</span></button>
+              <button class="opt" data-style="Balaclava" data-cat="facewear"><img loading="lazy" decoding="async" src="assets/products/Facewear/Balaclava.webp" alt=""><span class="ot">Balaclava</span></button>
+            </div>
+
+            <p class="panel-label">Base fabric colour</p>
+            <div class="swatchset">
+              <button class="fab sel" style="background:#3b3a37" title="Charcoal" aria-label="Charcoal"></button>
+              <button class="fab" style="background:#0c0c0c" title="Black" aria-label="Black"></button>
+              <button class="fab" style="background:#6f6a5e" title="Olive" aria-label="Olive"></button>
+              <button class="fab" style="background:#b8a888" title="Sand" aria-label="Sand"></button>
+              <button class="fab" style="background:#3c4b55" title="Slate" aria-label="Slate"></button>
+              <button class="fab" style="background:#7a3b2e" title="Rust" aria-label="Rust"></button>
+            </div>
+
+            <p class="panel-label">Embellishment</p>
+            <div class="seg" data-seg="emb">
+              <button class="active" type="button">Woven patch</button>
+              <button type="button">Embroidery</button>
+              <button type="button">Leather patch</button>
+            </div>
+
+            <p class="panel-label">Closure</p>
+            <div class="seg" data-seg="closure">
+              <button class="active" type="button">Snapback</button>
+              <button type="button">Leather strap</button>
+              <button type="button">Fabric strap</button>
+            </div>
+
+            <p class="panel-label">Colourways &amp; quantity</p>
+            <p style="font-size:.85rem;color:var(--g500);margin:0 0 8px">100 units per style minimum, 50 per colour. Two colourways is the sweet spot.</p>
+            <div class="colorways" id="cwList"></div>
+            <button class="btn btn-outline btn-sm cw-add" id="cwAdd" type="button">+ Add colourway</button>
+
+            <div class="moq">
+              <div class="moq-head">
+                <span class="mono-label">Order total</span>
+                <span class="moq-count" id="moqCount">100 <span class="of">/ 100 unit minimum</span></span>
+              </div>
+              <div class="prog"><div class="bar" id="moqBar"></div></div>
+              <div class="alert warn" id="moqMsg" role="status"></div>
+            </div>
+          </div>
+
+          <!-- Summary panel -->
+          <div class="panel">
+            <p class="panel-label">Your build</p>
+            <div class="summary">
+              <div class="line"><span class="k">Style</span><span class="v" id="sumStyle">5-Panel</span></div>
+              <div class="line"><span class="k">Fabric</span><span class="v" id="sumFabric">Charcoal</span></div>
+              <div class="line"><span class="k">Closure</span><span class="v" id="sumClosure">Snapback</span></div>
+              <div class="line"><span class="k">Finish</span><span class="v" id="sumEmb">Woven patch</span></div>
+              <div class="line"><span class="k">Colours</span><span class="v" id="sumColours">Charcoal, Sand</span></div>
+              <div class="line"><span class="k">Quantity</span><span class="v" id="sumQty">100 units</span></div>
+              <div class="line total"><span class="k">Est. / unit</span><span class="v" id="sumPrice">$16.00</span></div>
+            </div>
+            <p class="hint" style="text-align:right;margin:0 0 18px" id="sumEst"></p>
+
+            <div class="field">
+              <label for="notes">Product notes</label>
+              <textarea class="textarea" id="notes" rows="3" placeholder="Logo placement, embroidery notes, inspiration..."></textarea>
+            </div>
+            <div class="upload" role="button" tabindex="0">&#8682; &nbsp;Drag your logo here, or <b>browse</b><div class="hint" style="margin-top:4px">SVG, PNG or AI · up to 20MB</div></div>
+
+            <button class="btn btn-signal" id="requestProof" style="width:100%;justify-content:center;margin-top:20px" type="button">Request proof &#10140;</button>
+            <p class="hint" style="text-align:center;margin-top:10px" id="proofHint">Free design proof in 24 hours. No commitment.</p>
+          </div>
+
+        </div>
+      </div>
+      <p class="reveal" style="color:var(--g500);font-size:.9rem;margin-top:18px">Estimates use standard fabrics and embellishments. Your proof comes with an exact quote.</p>
+    </div>
+  </section>
+
+  <!-- Prefer to talk it through -->
+  <section class="band light">
+    <div class="wrap split">
+      <div class="reveal">
+        <span class="eyebrow">Prefer to talk it through?</span>
+        <h2>Not sure where to start? That is normal.</h2>
+        <p class="body">Send us your brand and a rough idea, and we will take it from there. Most of our clients are ordering custom product for the first time.</p>
+        <a class="btn btn-outline" href="contact.html">Speak to us</a>
+      </div>
+      <div class="split-visual reveal">
+        <img loading="lazy" decoding="async" src="assets/products/Beanie/Yarn.webp" alt="Custom chunky yarn beanie">
+      </div>
+    </div>
+  </section>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-cols">
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="what-we-make.html">Products</a></li>
+          <li><a href="our-work.html">Our Work</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="start-a-project.html">Start a Project</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-line">
+      <div class="social" aria-label="Social links">
+        <a href="https://www.instagram.com/voltfuse/" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2m0 1.8c-3.1 0-3.5 0-4.8.1-1.1.1-1.5.2-1.9.3-.5.2-.8.4-1.1.7-.3.3-.5.6-.7 1.1-.1.4-.3.8-.3 1.9-.1 1.2-.1 1.6-.1 4.8s0 3.5.1 4.8c.1 1.1.2 1.5.3 1.9.2.5.4.8.7 1.1.3.3.6.5 1.1.7.4.1.8.3 1.9.3 1.2.1 1.6.1 4.8.1s3.5 0 4.8-.1c1.1-.1 1.5-.2 1.9-.3.5-.2.8-.4 1.1-.7.3-.3.5-.6.7-1.1.1-.4.3-.8.3-1.9.1-1.2.1-1.6.1-4.8s0-3.5-.1-4.8c-.1-1.1-.2-1.5-.3-1.9-.2-.5-.4-.8-.7-1.1-.3-.3-.6-.5-1.1-.7-.4-.1-.8-.3-1.9-.3-1.2-.1-1.6-.1-4.8-.1zm0 3.1a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 8.2a3.2 3.2 0 1 0 0-6.4 3.2 3.2 0 0 0 0 6.4zm6.4-8.4a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0z"/></svg></a>
+        <a href="https://www.facebook.com/voltfuse" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12z"/></svg></a>
+        <a href="https://www.youtube.com/@VOLTFUSE" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12c0 1.9.2 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1c.3-1.9.5-3.9.5-5.8s-.2-3.9-.5-5.8zM9.6 15.6V8.4L15.8 12l-6.2 3.6z"/></svg></a>
+      </div>
+      <span>2nd Floor, 170 Water Street, St. John's, NL A1C 1A9</span>
+      <span>&copy; Custom Label by VOLTFUSE</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js?v=6"></script>
+</body>
+</html>
