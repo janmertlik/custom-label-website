@@ -266,7 +266,7 @@ img{max-width:100%;display:block;}
 .styletile{display:block;background:#fff;border:1px solid var(--g200);border-radius:var(--r-lg);
   padding:18px 14px 16px;text-align:center;transition:transform var(--t) var(--ease),box-shadow var(--t);}
 .styletile:hover{transform:translateY(-3px);box-shadow:var(--sh-2);}
-.styletile img{height:92px;width:auto;margin:0 auto 12px;object-fit:contain;
+.styletile img{height:138px;width:auto;margin:0 auto 12px;object-fit:contain;
   filter:drop-shadow(0 5px 8px rgba(0,0,0,.12));}
 .styletile .mono-label{color:var(--g700);}
 
