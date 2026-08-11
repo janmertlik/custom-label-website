@@ -270,6 +270,38 @@ img{max-width:100%;display:block;}
   filter:drop-shadow(0 5px 8px rgba(0,0,0,.12));}
 .styletile .mono-label{color:var(--g700);}
 
+/* customization-led details grid (starting styles, alternative) */
+.detail-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:176px;gap:12px;}
+.detail-tile{position:relative;display:block;border-radius:var(--r-lg);overflow:hidden;background:var(--g900);}
+.detail-tile.hero{grid-column:span 2;grid-row:span 2;}
+.detail-tile.wide{grid-column:span 2;}
+.detail-tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  transition:transform .45s var(--ease);}
+.detail-tile:hover img{transform:scale(1.05);}
+.detail-tile .dscrim{position:absolute;inset:auto 0 0 0;padding:52px 16px 13px;
+  background:linear-gradient(to top,rgba(0,0,0,.84) 0%,rgba(0,0,0,.4) 60%,rgba(0,0,0,0) 100%);}
+.dname{display:block;font-family:var(--fb-display);font-weight:600;text-transform:uppercase;
+  letter-spacing:.05em;font-size:1.02rem;color:#fff;line-height:1.1;}
+.dname em{font-style:normal;color:var(--signal);margin-right:6px;}
+.dopts{display:block;font-family:var(--fb-body);font-weight:700;text-transform:uppercase;
+  letter-spacing:.13em;font-size:.62rem;color:var(--g300);margin-top:4px;}
+.detail-cta{display:flex;flex-direction:column;justify-content:flex-end;gap:8px;padding:18px;
+  border:2px dashed var(--g600);border-radius:var(--r-lg);transition:border-color var(--t),background var(--t);}
+.detail-cta p{color:var(--g400);font-size:.86rem;line-height:1.45;margin:0;}
+.detail-cta .dgo{font-family:var(--fb-display);font-weight:600;text-transform:uppercase;
+  letter-spacing:.06em;font-size:.92rem;color:var(--signal);}
+.detail-cta:hover{text-decoration:none;border-color:var(--signal);background:rgba(240,83,31,.08);}
+@media(max-width:1020px){
+  .detail-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:158px;}
+}
+@media(max-width:640px){
+  .detail-grid{grid-auto-rows:132px;gap:10px;}
+  .detail-tile .dscrim{padding:38px 12px 10px;}
+  .dname{font-size:.92rem;}
+  .dopts{font-size:.56rem;letter-spacing:.1em;}
+  .detail-cta{grid-column:span 2;}
+}
+
 /* process steps with care descriptions */
 .steps.detailed .step{min-width:230px;padding-top:22px;padding-bottom:22px;}
 .step .sp{font-size:.86rem;color:var(--g600);margin-top:8px;line-height:1.5;}

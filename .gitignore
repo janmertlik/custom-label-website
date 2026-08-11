@@ -2,3 +2,5 @@
 # internal handover package - not for the public repo
 handover-doc/
 .claude/
+# raw photo dumps - only optimized crops under site/assets/img/web are published
+site/assets/worksmanship/
