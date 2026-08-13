@@ -740,11 +740,15 @@ h2.h2-stack:not(.h2-xl){font-size:clamp(2.2rem,3.8vw,3.4rem);}
   .testimonial-heading{flex-direction:column;align-items:flex-start;gap:16px;}
 }
 @media(max-width:760px){
-  .project-grid.snap-mobile{display:flex;gap:14px;margin:0 -26px;padding:8px 26px 18px;}
-  .process-flow.snap-mobile{border:0;background:transparent;box-shadow:none;display:flex;}
+  /* stack the project and process cards so every card is seen in the page flow */
+  .project-grid.snap-mobile,.process-flow.snap-mobile{display:flex;flex-direction:column;overflow:visible;
+    scroll-snap-type:none;gap:14px;margin:0;padding:0;}
+  .project-grid.snap-mobile > *,.process-flow.snap-mobile > *{flex:0 0 auto;width:100%;scroll-snap-align:none;}
+  .process-flow.snap-mobile{border:0;background:transparent;box-shadow:none;gap:22px;}
   .process-flow.snap-mobile article{background:var(--g50);border:1px solid var(--g200) !important;
-    border-radius:var(--r-lg);}
-  .process-flow.snap-mobile article::after{display:none;}
+    border-radius:var(--r-lg);min-height:0;}
+  .process-flow.snap-mobile article:not(:last-child)::after{top:auto;bottom:-24px;right:auto;left:50%;
+    transform:translateX(-50%) rotate(90deg);}
   .project-card,.project-card:nth-child(2),.project-card:nth-child(3){transform:none;height:auto;}
 }
 @media(max-width:640px){
