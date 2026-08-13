@@ -308,10 +308,10 @@ img{max-width:100%;display:block;}
 
 /* mobile horizontal snap for card rows */
 @media(max-width:760px){
-  .grid.snap-mobile{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;
+  .snap-mobile{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;
     margin:0 -26px;padding:4px 26px 18px;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
-  .grid.snap-mobile::-webkit-scrollbar{display:none;}
-  .grid.snap-mobile > *{flex:0 0 82%;scroll-snap-align:center;min-width:0;}
+  .snap-mobile::-webkit-scrollbar{display:none;}
+  .snap-mobile > *{flex:0 0 82%;scroll-snap-align:center;min-width:0;}
 }
 
 /* ---------- Video embed ---------- */
@@ -740,6 +740,7 @@ h2.h2-stack:not(.h2-xl){font-size:clamp(2.2rem,3.8vw,3.4rem);}
   .testimonial-heading{flex-direction:column;align-items:flex-start;gap:16px;}
 }
 @media(max-width:760px){
+  .project-grid.snap-mobile{display:flex;gap:14px;margin:0 -26px;padding:8px 26px 18px;}
   .process-flow.snap-mobile{border:0;background:transparent;box-shadow:none;display:flex;}
   .process-flow.snap-mobile article{background:var(--g50);border:1px solid var(--g200) !important;
     border-radius:var(--r-lg);}
