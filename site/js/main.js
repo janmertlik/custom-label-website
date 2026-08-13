@@ -145,6 +145,35 @@
     setTimeout(function () { stacks.forEach(playStack); }, 3500);
   }
 
+  /* ---------- Video poster: click to load the YouTube embed ---------- */
+  var videoShell = document.getElementById('videoShell');
+  if (videoShell) {
+    var poster = videoShell.querySelector('.video-poster');
+    poster.addEventListener('click', function () {
+      var frame = document.createElement('iframe');
+      frame.src = 'https://www.youtube-nocookie.com/embed/My3HNxc-e0I?autoplay=1';
+      frame.title = 'Create Custom Headwear with VOLTFUSE';
+      frame.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+      frame.allowFullscreen = true;
+      videoShell.replaceChild(frame, poster);
+    });
+  }
+
+  /* ---------- Testimonial carousel ---------- */
+  var tstStage = document.getElementById('tstStage');
+  if (tstStage) {
+    var slides = tstStage.querySelectorAll('.t-slide');
+    var tstCount = document.getElementById('tstCount');
+    var idx = 0;
+    var show = function (n) {
+      idx = (n + slides.length) % slides.length;
+      slides.forEach(function (s, i) { s.classList.toggle('active', i === idx); });
+      tstCount.textContent = '0' + (idx + 1) + ' / 0' + slides.length;
+    };
+    document.getElementById('tstPrev').addEventListener('click', function () { show(idx - 1); });
+    document.getElementById('tstNext').addEventListener('click', function () { show(idx + 1); });
+  }
+
   /* ---------- Tabs ---------- */
   document.querySelectorAll('[data-tabs]').forEach(function (t) {
     t.querySelectorAll('button').forEach(function (b) {
