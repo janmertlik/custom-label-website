@@ -145,6 +145,27 @@
     setTimeout(function () { stacks.forEach(playStack); }, 3500);
   }
 
+  /* ---------- Hero photo stack: click to shuffle the next shot on top ---------- */
+  var heroStack = document.getElementById('heroStack');
+  if (heroStack) {
+    var nextPos = { front: 'rear', mid: 'front', back: 'mid', rear: 'back' };
+    var shuffle = function () {
+      heroStack.querySelectorAll('.photo-sheet').forEach(function (s) {
+        for (var pos in nextPos) {
+          if (s.classList.contains(pos)) {
+            s.classList.remove(pos);
+            s.classList.add(nextPos[pos]);
+            break;
+          }
+        }
+      });
+    };
+    heroStack.addEventListener('click', shuffle);
+    heroStack.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); shuffle(); }
+    });
+  }
+
   /* ---------- Video poster: click to load the YouTube embed ---------- */
   var videoShell = document.getElementById('videoShell');
   if (videoShell) {
