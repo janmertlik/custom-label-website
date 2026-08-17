@@ -806,8 +806,13 @@ h2.h2-stack:not(.h2-xl){font-size:clamp(2.2rem,3.8vw,3.4rem);}
 .fv-label{background:var(--canvas);border-top:1px solid var(--g200);padding:16px 0;text-align:center;}
 
 /* version A: conventional four-column footer with the banner logo */
+.footer-a{--content-left:max(26px, calc((100vw - var(--maxw)) / 2 + 26px));}
 .footer-a .fa-grid{display:grid;grid-template-columns:1.35fr .7fr .7fr 1fr;gap:44px;padding-bottom:44px;}
-.footer-a .fa-brand img{height:26px;width:auto;margin-bottom:18px;}
+/* the wordmark's white bar runs from the viewport edge, like the header */
+.footer-a .fa-brandline{position:relative;display:flex;align-items:center;height:26px;margin-bottom:20px;}
+.footer-a .fa-brandline::before{content:"";position:absolute;top:0;height:26px;background:#fff;
+  right:calc(100% - 114px);width:100vw;}
+.footer-a .fa-brandline img{position:relative;height:26px;width:auto;max-width:none;margin-left:-3px;}
 .footer-a .fa-brand p{color:var(--g400);font-size:.9rem;line-height:1.6;max-width:30ch;margin:0 0 18px;}
 .footer-a h4{color:#fff;font-size:.88rem;letter-spacing:.1em;margin-bottom:14px;}
 .footer-a ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px;}
@@ -826,7 +831,7 @@ h2.h2-stack:not(.h2-xl){font-size:clamp(2.2rem,3.8vw,3.4rem);}
 .care-label:hover{transform:rotate(0deg);}
 .care-label::before{content:"";position:absolute;inset:9px;border:1.5px dashed var(--g300);
   border-radius:var(--r-xs);pointer-events:none;}
-.care-label img{height:22px;width:auto;margin-bottom:20px;}
+.care-label img{width:min(100%,258px);height:auto;margin-bottom:20px;}
 .cl-rows{display:flex;flex-direction:column;gap:6px;margin-bottom:20px;}
 .cl-rows span{font-family:var(--fb-body);font-weight:700;text-transform:uppercase;letter-spacing:.16em;
   font-size:.62rem;color:var(--g600);}
