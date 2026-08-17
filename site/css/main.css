@@ -801,11 +801,8 @@ h2.h2-stack:not(.h2-xl){font-size:clamp(2.2rem,3.8vw,3.4rem);}
 }
 
 /* ============================================================
-   FOOTER EXPLORATIONS (A and B, shown stacked for review)
+   FOOTER: four columns with the full-bleed banner logo
    ============================================================ */
-.fv-label{background:var(--canvas);border-top:1px solid var(--g200);padding:16px 0;text-align:center;}
-
-/* version A: conventional four-column footer with the banner logo */
 .footer-a{--content-left:max(26px, calc((100vw - var(--maxw)) / 2 + 26px));}
 .footer-a .fa-grid{display:grid;grid-template-columns:1.35fr .7fr .7fr 1fr;gap:44px;padding-bottom:44px;}
 /* the wordmark's white bar runs from the viewport edge, like the header */
@@ -820,44 +817,11 @@ h2.h2-stack:not(.h2-xl){font-size:clamp(2.2rem,3.8vw,3.4rem);}
 .footer-a ul a:hover{color:#fff;text-decoration:none;}
 .footer-a .fa-cta p{color:var(--g400);font-size:.85rem;line-height:1.55;max-width:26ch;margin:0 0 14px;}
 
-/* version B: the footer as a garment care label */
-.footer-b{position:relative;}
-.footer-b::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--signal);}
-.footer-b .fb-grid{display:grid;grid-template-columns:360px 1fr;gap:70px;align-items:start;padding-bottom:44px;}
-.care-label{position:relative;background:var(--g50);color:var(--g800);padding:34px 30px 30px;
-  border-radius:var(--r-xs);box-shadow:0 18px 40px rgba(0,0,0,.4);transform:rotate(-1.2deg);
-  margin-top:-14px;display:flex;flex-direction:column;align-items:center;text-align:center;
-  transition:transform .3s var(--ease);}
-.care-label:hover{transform:rotate(0deg);}
-.care-label::before{content:"";position:absolute;inset:9px;border:1.5px dashed var(--g300);
-  border-radius:var(--r-xs);pointer-events:none;}
-.care-label img{width:min(100%,258px);height:auto;margin-bottom:20px;}
-.cl-rows{display:flex;flex-direction:column;gap:6px;margin-bottom:20px;}
-.cl-rows span{font-family:var(--fb-body);font-weight:700;text-transform:uppercase;letter-spacing:.16em;
-  font-size:.62rem;color:var(--g600);}
-.cl-icons{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;width:100%;
-  border-top:1.5px dashed var(--g300);border-bottom:1.5px dashed var(--g300);padding:16px 4px;margin-bottom:16px;}
-.cl-icon{display:flex;flex-direction:column;align-items:center;gap:7px;color:var(--g700);}
-.cl-icon svg{width:26px;height:26px;}
-.cl-icon small{font-size:.5rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;
-  color:var(--g500);line-height:1.35;max-width:12ch;}
-.cl-size{display:inline-block;font-family:var(--fb-display);font-weight:600;text-transform:uppercase;
-  letter-spacing:.06em;font-size:.8rem;color:var(--black);background:#fff;border:1.5px solid var(--black);
-  padding:5px 12px;border-radius:var(--r);}
-.fb-right{padding-top:10px;}
-.fb-tag{font-size:1.35rem;color:var(--g300);font-style:italic;margin:0 0 26px;max-width:30ch;}
-.fb-right .footer-cols{margin-bottom:26px;}
-.footer-b .footer-line{border-top:1px solid var(--g800);}
-
 @media(max-width:1020px){
   .footer-a .fa-grid{grid-template-columns:1fr 1fr;gap:34px;}
-  .footer-b .fb-grid{grid-template-columns:1fr;gap:44px;}
-  .care-label{max-width:380px;margin:-8px auto 0;}
 }
 @media(max-width:640px){
   .footer-a .fa-grid{grid-template-columns:1fr;gap:30px;}
-  .footer-b .fb-grid{gap:36px;}
-  .care-label{max-width:none;}
 }
 
 /* ---------- Scroll reveal ---------- */
