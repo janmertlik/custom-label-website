@@ -646,23 +646,17 @@ h2.h2-stack:not(.h2-xl){font-size:clamp(2.2rem,3.8vw,3.4rem);}
 .exp-calls li{display:flex;gap:16px;align-items:flex-start;padding:13px 0;border-bottom:2px dashed var(--g200);
   transition:background var(--t);}
 .exp-calls li:first-child{border-top:2px dashed var(--g200);}
-.call-thumb{position:relative;flex:0 0 auto;width:54px;height:54px;}
-.call-thumb img{width:54px;height:54px;border-radius:50%;object-fit:cover;border:3px solid #fff;
-  box-shadow:0 4px 10px rgba(0,0,0,.16);background:var(--g100);}
-.call-thumb.thumb-product img{object-fit:contain;padding:5px;}
-.call-thumb em{position:absolute;top:-5px;left:-7px;font-style:normal;display:grid;place-items:center;
-  width:21px;height:21px;border-radius:50%;background:var(--signal);color:#fff;
-  font-family:var(--fb-display);font-weight:600;font-size:.52rem;letter-spacing:.03em;
-  box-shadow:0 2px 6px rgba(0,0,0,.22);transition:background var(--t);}
+.exp-calls li em{font-style:normal;font-family:var(--fb-display);font-weight:600;font-size:1.05rem;
+  color:var(--signal);line-height:1.4;flex:0 0 auto;transition:transform .2s var(--ease);}
 .exp-calls li strong{display:block;font-family:var(--fb-display);font-weight:600;text-transform:uppercase;
-  font-size:.98rem;color:var(--black);letter-spacing:.03em;}
+  font-size:.98rem;color:var(--black);letter-spacing:.03em;transition:color var(--t);}
 .exp-calls li p{margin:3px 0 0;font-size:.86rem;color:var(--g600);line-height:1.5;}
-.exp-calls li.hot .call-thumb em{background:var(--signal-deep);}
-.detail-loupe{position:absolute;right:-2%;bottom:0;width:132px;margin:0;text-align:center;z-index:1;}
-.detail-loupe img{width:132px;height:132px;border-radius:50%;object-fit:cover;border:6px solid #fff;
-  box-shadow:0 12px 28px rgba(0,0,0,.24);transform:rotate(2deg);}
-.detail-loupe figcaption{margin-top:8px;font-family:var(--fb-body);font-weight:700;text-transform:uppercase;
-  letter-spacing:.12em;font-size:.56rem;color:var(--g500);}
+/* highlight state, driven by hovering either the row or its dot on the hat */
+.exp-calls li{padding-left:10px;padding-right:10px;margin-left:-10px;margin-right:-10px;
+  border-radius:var(--r-xs);transition:background var(--t),transform .2s var(--ease);}
+.exp-calls li.hot{background:rgba(240,83,31,.08);transform:translateX(5px);}
+.exp-calls li.hot em{transform:scale(1.12);}
+.exp-calls li.hot strong{color:var(--signal-deep);}
 .exp-calls .textlink{display:inline-block;margin-top:20px;}
 .anno-hat{grid-area:hat;position:relative;max-width:520px;margin:0 auto;}
 .anno-hat img{width:100%;height:auto;filter:drop-shadow(0 18px 26px rgba(0,0,0,.18));}
@@ -814,9 +808,6 @@ h2.h2-stack:not(.h2-xl){font-size:clamp(2.2rem,3.8vw,3.4rem);}
   .anno-hat{max-width:min(380px,86vw);}
   .anno-dot{width:23px;height:23px;font-size:.54rem;}
   .exp-calls ol{margin-top:4px;}
-  .detail-loupe{width:104px;right:-6%;}
-  .detail-loupe img{width:104px;height:104px;border-width:5px;}
-  .call-thumb,.call-thumb img{width:46px;height:46px;}
   /* projects swipe; the process timeline stacks naturally */
   .pathway-grid{grid-template-columns:1fr;gap:16px;}
   .project-grid.snap-mobile{display:flex;gap:13px;margin:0 -26px;padding:4px 26px 19px;}
