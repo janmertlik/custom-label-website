@@ -166,6 +166,25 @@
     });
   }
 
+  /* ---------- Expertise: pair the hat dots with the calls list ---------- */
+  var annoHat = document.getElementById('annoHat');
+  var expCalls = document.getElementById('expCalls');
+  if (annoHat && expCalls) {
+    var pair = function (el, on) {
+      var n = el.dataset.call;
+      annoHat.querySelectorAll('.anno-dot[data-call="' + n + '"]').forEach(function (d) { d.classList.toggle('hot', on); });
+      expCalls.querySelectorAll('li[data-call="' + n + '"]').forEach(function (li) { li.classList.toggle('hot', on); });
+    };
+    annoHat.querySelectorAll('.anno-dot').forEach(function (d) {
+      d.addEventListener('mouseenter', function () { pair(d, true); });
+      d.addEventListener('mouseleave', function () { pair(d, false); });
+    });
+    expCalls.querySelectorAll('li').forEach(function (li) {
+      li.addEventListener('mouseenter', function () { pair(li, true); });
+      li.addEventListener('mouseleave', function () { pair(li, false); });
+    });
+  }
+
   /* ---------- Video poster: click to load the YouTube embed ---------- */
   var videoShell = document.getElementById('videoShell');
   if (videoShell) {
