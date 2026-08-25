@@ -6,7 +6,7 @@
 <title>Contact · Custom Label by VOLTFUSE</title>
 <meta name="description" content="Tell us about your brand. The fastest way to a quote. We usually reply the same day.">
 <link rel="icon" type="image/png" href="assets/logos/vf-logo-black.png">
-<link rel="stylesheet" href="css/main.css?v=54">
+<link rel="stylesheet" href="css/main.css?v=55">
 </head>
 <body>
 <header class="site-header">
@@ -59,6 +59,55 @@
           </div>
         </div>
         <div class="field"><label for="c-notes">Project notes</label><textarea class="textarea" id="c-notes" rows="4" placeholder="Colours, logo, rough direction, timeline..."></textarea></div>
+        <div class="field">
+          <button type="button" class="picker-toggle" id="fancyToggle" aria-expanded="false" aria-controls="fancyPicker">
+            Anything that tickled your fancy?
+            <span class="pt-meta"><span class="picker-count" id="fancyCount" hidden></span><span class="pt-optional">Optional</span><span class="pm">+</span></span>
+          </button>
+          <div class="fancy-picker" id="fancyPicker">
+            <div class="fp-inner">
+              <p class="hint" style="margin:0 0 10px">Tick anything you liked the look of. We'll use it to read your taste.</p>
+              <div class="tabs mini" data-tabs="fancyPanes">
+                <button type="button" class="active" data-tab="fp-caps">Caps</button>
+                <button type="button" data-tab="fp-beanies">Beanies</button>
+                <button type="button" data-tab="fp-facewear">Facewear</button>
+              </div>
+              <div id="fancyPanes">
+                <div class="tabpane active" id="fp-caps">
+                  <div class="fp-grid">
+                    <label class="opt mini"><input type="checkbox" name="fancy" value="Cap &middot; 5-Panel"><img loading="lazy" decoding="async" src="assets/products/Cap/5-Panel.webp" alt=""><span class="ot">5-Panel</span></label>
+                    <label class="opt mini"><input type="checkbox" name="fancy" value="Cap &middot; Trucker"><img loading="lazy" decoding="async" src="assets/products/Cap/Classic-Trucker.webp" alt=""><span class="ot">Trucker</span></label>
+                    <label class="opt mini"><input type="checkbox" name="fancy" value="Cap &middot; Curved Classic"><img loading="lazy" decoding="async" src="assets/products/Cap/Curved-Classic.webp" alt=""><span class="ot">Curved Classic</span></label>
+                    <label class="opt mini"><input type="checkbox" name="fancy" value="Cap &middot; Colour Block"><img loading="lazy" decoding="async" src="assets/products/Cap/Color-Block.webp" alt=""><span class="ot">Colour Block</span></label>
+                    <label class="opt mini"><input type="checkbox" name="fancy" value="Cap &middot; Corduroy"><img loading="lazy" decoding="async" src="assets/products/Cap/Corduroy-Alan.webp" alt=""><span class="ot">Corduroy</span></label>
+                    <label class="opt mini"><input type="checkbox" name="fancy" value="Cap &middot; Waxed"><img loading="lazy" decoding="async" src="assets/products/Cap/Waxed-Alan-Cap.webp" alt=""><span class="ot">Waxed</span></label>
+                    <label class="opt mini"><input type="checkbox" name="fancy" value="Cap &middot; Runner"><img loading="lazy" decoding="async" src="assets/products/Cap/Runner.webp" alt=""><span class="ot">Runner</span></label>
+                    <label class="opt mini"><input type="checkbox" name="fancy" value="Cap &middot; Sou'wester"><img loading="lazy" decoding="async" src="assets/products/Cap/Sou-wester.webp" alt=""><span class="ot">Sou'wester</span></label>
+                    <label class="opt mini"><input type="checkbox" name="fancy" value="Cap &middot; Sherpa"><img loading="lazy" decoding="async" src="assets/products/Cap/Sherpa.webp" alt=""><span class="ot">Sherpa</span></label>
+                  </div>
+                </div>
+                <div class="tabpane" id="fp-beanies">
+                  <div class="fp-grid">
+                    <label class="opt mini"><input type="checkbox" name="fancy" value="Beanie &middot; Ribbed"><img loading="lazy" decoding="async" src="assets/products/Beanie/Ribbed-Beanie.webp" alt=""><span class="ot">Ribbed</span></label>
+                    <label class="opt mini"><input type="checkbox" name="fancy" value="Beanie &middot; Fisherman"><img loading="lazy" decoding="async" src="assets/products/Beanie/Fisherman.webp" alt=""><span class="ot">Fisherman</span></label>
+                    <label class="opt mini"><input type="checkbox" name="fancy" value="Beanie &middot; Heather"><img loading="lazy" decoding="async" src="assets/products/Beanie/Heather.webp" alt=""><span class="ot">Heather</span></label>
+                    <label class="opt mini"><input type="checkbox" name="fancy" value="Beanie &middot; Old School"><img loading="lazy" decoding="async" src="assets/products/Beanie/Old-School.webp" alt=""><span class="ot">Old School</span></label>
+                    <label class="opt mini"><input type="checkbox" name="fancy" value="Beanie &middot; Tamarack"><img loading="lazy" decoding="async" src="assets/products/Beanie/Tamarack.webp" alt=""><span class="ot">Tamarack</span></label>
+                    <label class="opt mini"><input type="checkbox" name="fancy" value="Beanie &middot; Yarn"><img loading="lazy" decoding="async" src="assets/products/Beanie/Yarn.webp" alt=""><span class="ot">Yarn</span></label>
+                  </div>
+                </div>
+                <div class="tabpane" id="fp-facewear">
+                  <div class="fp-grid">
+                    <label class="opt mini"><input type="checkbox" name="fancy" value="Facewear &middot; Balaclava"><img loading="lazy" decoding="async" src="assets/products/Facewear/Balaclava.webp" alt=""><span class="ot">Balaclava</span></label>
+                    <label class="opt mini"><input type="checkbox" name="fancy" value="Facewear &middot; Tube"><img loading="lazy" decoding="async" src="assets/products/Facewear/Neck-Tube.webp" alt=""><span class="ot">Tube</span></label>
+                    <label class="opt mini"><input type="checkbox" name="fancy" value="Facewear &middot; Polar Hood"><img loading="lazy" decoding="async" src="assets/products/Facewear/Polar-Hood.webp" alt=""><span class="ot">Polar Hood</span></label>
+                    <label class="opt mini"><input type="checkbox" name="fancy" value="Facewear &middot; Bucket"><img loading="lazy" decoding="async" src="assets/products/Cap/Bucket.webp" alt=""><span class="ot">Bucket</span></label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="field">
           <label>Logo upload</label>
           <div class="upload" role="button" tabindex="0">&#8682; &nbsp;Drag your logo here, or <b>browse</b><div class="hint" style="margin-top:4px">SVG, PNG or AI · up to 20MB</div></div>
@@ -163,6 +212,6 @@
   </div>
 </footer>
 
-<script src="js/main.js?v=9"></script>
+<script src="js/main.js?v=10"></script>
 </body>
 </html>

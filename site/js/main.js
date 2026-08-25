@@ -214,6 +214,48 @@
     document.getElementById('tstNext').addEventListener('click', function () { show(idx + 1); });
   }
 
+  /* ---------- Contact: "tickled your fancy" product picker ---------- */
+  var fancyToggle = document.getElementById('fancyToggle');
+  var fancyPicker = document.getElementById('fancyPicker');
+  if (fancyToggle && fancyPicker) {
+    fancyToggle.addEventListener('click', function () {
+      var open = fancyToggle.classList.toggle('open');
+      fancyToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      if (open) {
+        fancyPicker.style.maxHeight = fancyPicker.scrollHeight + 'px';
+        setTimeout(function () { if (fancyToggle.classList.contains('open')) fancyPicker.style.maxHeight = 'none'; }, 340);
+      } else {
+        fancyPicker.style.maxHeight = fancyPicker.scrollHeight + 'px';
+        void fancyPicker.offsetHeight;
+        fancyPicker.style.maxHeight = '0';
+      }
+    });
+    var fancyCount = document.getElementById('fancyCount');
+    var fancyForm = fancyToggle.closest('form');
+    var baseDemo = fancyForm ? fancyForm.dataset.demo : '';
+    fancyPicker.addEventListener('change', function () {
+      var picks = [];
+      fancyPicker.querySelectorAll('input[name="fancy"]').forEach(function (c) {
+        c.closest('.opt').classList.toggle('sel', c.checked);
+        if (c.checked) picks.push(c.value);
+      });
+      if (fancyCount) {
+        fancyCount.hidden = picks.length === 0;
+        fancyCount.textContent = picks.length + ' picked';
+      }
+      if (fancyForm) {
+        fancyForm.dataset.demo = picks.length
+          ? 'Message sent. We noted the ' + picks.length + ' style' + (picks.length > 1 ? 's' : '') + ' you flagged.'
+          : baseDemo;
+      }
+    });
+    if (fancyForm) {
+      fancyForm.addEventListener('submit', function () {
+        setTimeout(function () { fancyPicker.dispatchEvent(new Event('change')); }, 0);
+      });
+    }
+  }
+
   /* ---------- Tabs ---------- */
   document.querySelectorAll('[data-tabs]').forEach(function (t) {
     t.querySelectorAll('button').forEach(function (b) {

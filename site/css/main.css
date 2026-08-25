@@ -496,6 +496,34 @@ img{max-width:100%;display:block;}
 .upload{border:2px dashed var(--g300);border-radius:var(--r-lg);padding:28px;text-align:center;color:var(--g500);background:#fff;transition:border-color var(--t),color var(--t),background var(--t);cursor:pointer;}
 .upload:hover{border-color:var(--signal);color:var(--signal-deep);background:var(--signal-soft);}
 
+/* ---------- Contact: "tickled your fancy" product picker ---------- */
+.picker-toggle{width:100%;display:flex;align-items:center;gap:10px;background:transparent;border:0;
+  border-top:2px dashed var(--g200);border-bottom:2px dashed var(--g200);padding:15px 2px;cursor:pointer;
+  font-family:var(--fb-display);font-weight:600;text-transform:uppercase;font-size:1rem;letter-spacing:.03em;
+  color:var(--black);text-align:left;transition:color var(--t);}
+.picker-toggle:hover{color:var(--signal-deep);}
+.picker-toggle .pt-meta{margin-left:auto;display:flex;align-items:center;gap:12px;}
+.picker-toggle .pt-optional{font-family:var(--fb-body);font-weight:700;text-transform:uppercase;
+  letter-spacing:.12em;font-size:.62rem;color:var(--g400);}
+.picker-toggle .pm{font-family:var(--fb-body);color:var(--signal);font-size:1.4rem;line-height:1;
+  transition:transform .2s;flex:0 0 auto;}
+.picker-toggle.open .pm{transform:rotate(45deg);}
+.picker-count{font-family:var(--fb-body);font-weight:700;text-transform:uppercase;letter-spacing:.1em;
+  font-size:.6rem;color:#fff;background:var(--signal);padding:4px 9px;border-radius:99px;}
+.fancy-picker{max-height:0;overflow:hidden;transition:max-height .32s var(--ease);}
+.fancy-picker .fp-inner{padding:16px 2px 20px;}
+.tabs.mini button{font-size:.82rem;padding:8px 14px;}
+.fancy-picker .tabpane{padding:16px 0 0;}
+.fp-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;}
+.opt.mini{padding:10px 6px 9px;}
+.opt.mini input{position:absolute;opacity:0;pointer-events:none;}
+.opt.mini{position:relative;}
+.opt.mini img{height:44px;}
+.opt.mini .ot{font-size:.66rem;margin-top:6px;line-height:1.2;}
+@media(max-width:640px){
+  .fp-grid{grid-template-columns:repeat(3,1fr);}
+}
+
 /* ---------- Alerts ---------- */
 .alert{display:flex;gap:12px;padding:14px 16px;border-radius:var(--r-md);border-left:4px solid;align-items:flex-start;font-size:.9rem;}
 .alert .ai{font-size:1.05rem;line-height:1.3;}
