@@ -148,7 +148,10 @@
   /* ---------- Hero photo stack: click to shuffle the next shot on top ---------- */
   var heroStack = document.getElementById('heroStack');
   if (heroStack) {
-    var nextPos = { front: 'rear', mid: 'front', back: 'mid', rear: 'back' };
+    /* four sheets cycle through a hidden rear slot; three sheets send the front one straight to the back */
+    var nextPos = heroStack.querySelector('.photo-sheet.rear')
+      ? { front: 'rear', mid: 'front', back: 'mid', rear: 'back' }
+      : { front: 'back', mid: 'front', back: 'mid' };
     var shuffle = function () {
       heroStack.querySelectorAll('.photo-sheet').forEach(function (s) {
         for (var pos in nextPos) {
@@ -185,18 +188,57 @@
     });
   }
 
-  /* ---------- Video poster: click to load the YouTube embed ---------- */
+  /* ---------- Video posters: click to load the YouTube embed in place ---------- */
+  var playVideo = function (poster, id, title) {
+    var frame = document.createElement('iframe');
+    frame.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0&modestbranding=1&playsinline=1';
+    frame.title = title;
+    frame.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen';
+    frame.allowFullscreen = true;
+    poster.parentNode.replaceChild(frame, poster);
+  };
   var videoShell = document.getElementById('videoShell');
   if (videoShell) {
-    var poster = videoShell.querySelector('.video-poster');
-    poster.addEventListener('click', function () {
-      var frame = document.createElement('iframe');
-      frame.src = 'https://www.youtube-nocookie.com/embed/My3HNxc-e0I?autoplay=1';
-      frame.title = 'Create Custom Headwear with VOLTFUSE';
-      frame.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
-      frame.allowFullscreen = true;
-      videoShell.replaceChild(frame, poster);
+    videoShell.querySelector('.video-poster').addEventListener('click', function () {
+      playVideo(this, 'My3HNxc-e0I', 'Create Custom Headwear with VOLTFUSE');
     });
+  }
+  var aboutVideo = document.getElementById('aboutVideo');
+  if (aboutVideo) {
+    aboutVideo.querySelector('.video-poster').addEventListener('click', function () {
+      playVideo(this, aboutVideo.dataset.video, aboutVideo.dataset.title);
+    });
+  }
+
+  /* ---------- Client story videos (Our Work) ---------- */
+  var videoTrack = document.getElementById('videoTrack');
+  if (videoTrack) {
+    var vCards = videoTrack.querySelectorAll('.video-card');
+    vCards.forEach(function (card, n) {
+      var poster = card.querySelector('.video-poster');
+      var thumb = poster.querySelector('img');
+      /* YouTube serves a tiny grey placeholder when a thumbnail size is missing */
+      var fallback = function () {
+        if (thumb.src.indexOf('hqdefault') === -1) thumb.src = 'https://i.ytimg.com/vi/' + poster.dataset.video + '/hqdefault.jpg';
+      };
+      thumb.addEventListener('error', fallback);
+      thumb.addEventListener('load', function () { if (thumb.naturalWidth <= 120) fallback(); });
+      poster.addEventListener('click', function () {
+        playVideo(poster, poster.dataset.video, 'Client video testimonial ' + (n + 1));
+      });
+    });
+    var vidCount = document.getElementById('vidCount');
+    var vStep = function () { return vCards[0].offsetWidth + 16; };
+    var vIndex = function () { return Math.min(vCards.length - 1, Math.max(0, Math.round(videoTrack.scrollLeft / vStep()))); };
+    var vGo = function (d) {
+      var n = (vIndex() + d + vCards.length) % vCards.length;
+      videoTrack.scrollTo({ left: n * vStep(), behavior: 'smooth' });
+    };
+    videoTrack.addEventListener('scroll', function () {
+      vidCount.textContent = '0' + (vIndex() + 1) + ' / 0' + vCards.length;
+    }, { passive: true });
+    document.getElementById('vidPrev').addEventListener('click', function () { vGo(-1); });
+    document.getElementById('vidNext').addEventListener('click', function () { vGo(1); });
   }
 
   /* ---------- Testimonial carousel ---------- */
@@ -324,6 +366,146 @@
       f.reset();
     });
   });
+
+  /* ---------- Lightbox: gallery photos and project details (Our Work) ---------- */
+  var lightbox = document.getElementById('lightbox');
+  if (lightbox) {
+    var lbItems = [], lbIndex = 0, lbLast = null;
+    var lbClose = function () {
+      lightbox.classList.remove('open');
+      lightbox.innerHTML = '';
+      document.body.style.overflow = '';
+      if (lbLast) lbLast.focus();
+    };
+    var lbOpen = function (html, label) {
+      lbLast = document.activeElement;
+      lightbox.innerHTML = html;
+      lightbox.setAttribute('aria-label', label);
+      lightbox.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      lightbox.querySelector('.lightbox-btn.close').focus();
+    };
+    var lbShowPhoto = function () {
+      var it = lbItems[lbIndex];
+      var img = lightbox.querySelector('.lightbox-frame > img');
+      img.src = it.src; img.alt = it.alt;
+    };
+    var lbStep = function (d) {
+      if (!lightbox.querySelector('.lightbox-frame')) return;
+      lbIndex = (lbIndex + d + lbItems.length) % lbItems.length;
+      lbShowPhoto();
+    };
+    lightbox.addEventListener('mousedown', function (e) { if (e.target === lightbox) lbClose(); });
+    lightbox.addEventListener('click', function (e) {
+      var b = e.target.closest('button');
+      if (!b) return;
+      if (b.classList.contains('close')) lbClose();
+      else if (b.classList.contains('prev')) lbStep(-1);
+      else if (b.classList.contains('next')) lbStep(1);
+      else if (b.dataset.src) {
+        lightbox.querySelector('.pd-stage img').src = b.dataset.src;
+        lightbox.querySelectorAll('.pd-thumbs button').forEach(function (x) { x.classList.toggle('active', x === b); });
+      }
+    });
+    document.addEventListener('keydown', function (e) {
+      if (!lightbox.classList.contains('open')) return;
+      if (e.key === 'Escape') lbClose();
+      if (e.key === 'ArrowLeft') lbStep(-1);
+      if (e.key === 'ArrowRight') lbStep(1);
+    });
+
+    /* gallery: open the clicked photo, step through whatever the filter is showing */
+    var workGallery = document.getElementById('workGallery');
+    if (workGallery) {
+      workGallery.addEventListener('click', function (e) {
+        var tile = e.target.closest('.tile');
+        if (!tile) return;
+        var shown = Array.prototype.filter.call(workGallery.querySelectorAll('.tile'), function (x) { return !x.classList.contains('hide'); });
+        lbItems = shown.map(function (x) { var im = x.querySelector('img'); return { src: im.getAttribute('src'), alt: im.alt }; });
+        lbIndex = shown.indexOf(tile);
+        lbOpen('<div class="lightbox-frame"><img src="" alt="">' +
+          '<button type="button" class="lightbox-btn close" aria-label="Close image viewer">&times;</button>' +
+          (lbItems.length > 1
+            ? '<button type="button" class="lightbox-btn prev" aria-label="Previous photo">&#8249;</button>' +
+              '<button type="button" class="lightbox-btn next" aria-label="Next photo">&#8250;</button>'
+            : '') + '</div>', 'Gallery image');
+        lbShowPhoto();
+      });
+    }
+
+    /* case studies: project dialog with a photo set, story and facts */
+    var workProjects = document.getElementById('workProjects');
+    if (workProjects) {
+      var escHtml = function (s) { var d = document.createElement('div'); d.textContent = s; return d.innerHTML; };
+      workProjects.addEventListener('click', function (e) {
+        var card = e.target.closest('.project-card');
+        if (!card) return;
+        var d = card.dataset, imgs = d.images.split(','), title = escHtml(d.title);
+        lbOpen('<div class="project-dialog">' +
+          '<div class="pd-stage"><img src="' + imgs[0] + '" alt="' + title + ' custom headwear"></div>' +
+          '<div class="pd-info">' +
+            '<span class="mono-label">' + escHtml(d.type) + '</span>' +
+            '<h3>' + title + '</h3>' +
+            '<p>' + escHtml(d.body) + '</p>' +
+            '<div class="pd-facts">' + d.facts.split('|').map(function (f) { return '<span class="chip">' + escHtml(f) + '</span>'; }).join('') + '</div>' +
+            '<div class="pd-thumbs">' + imgs.map(function (s, n) {
+              return '<button type="button" data-src="' + s + '"' + (n === 0 ? ' class="active"' : '') +
+                ' aria-label="Show photo ' + (n + 1) + '"><img src="' + s + '" alt=""></button>';
+            }).join('') + '</div>' +
+          '</div>' +
+          '<button type="button" class="lightbox-btn close" aria-label="Close project">&times;</button>' +
+        '</div>', d.title + ' project');
+      });
+    }
+  }
+
+  /* ---------- Pricing: quantity tabs on small screens ---------- */
+  var priceMobile = document.getElementById('priceMobile');
+  if (priceMobile) {
+    var priceQty = ['100', '200', '500', '1000+'];
+    priceMobile.querySelectorAll('.price-tabs button').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var q = +b.dataset.q;
+        priceMobile.querySelectorAll('.price-tabs button').forEach(function (x) { x.classList.toggle('active', x === b); });
+        document.getElementById('priceRunQty').textContent = priceQty[q];
+        document.getElementById('priceRunNote').textContent = q === 0 ? '· starting run' : '';
+        priceMobile.querySelectorAll('[data-prices]').forEach(function (el) { el.textContent = el.dataset.prices.split('|')[q]; });
+      });
+    });
+  }
+
+  /* ---------- About: live hats-made counter ---------- */
+  var hatCount = document.getElementById('hatCount');
+  if (hatCount && 'IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    var hatValue = 60000;
+    var hatShow = function (n) { hatCount.textContent = Math.round(n).toLocaleString('en-US'); };
+    var hatObs = new IntersectionObserver(function (entries) {
+      if (!entries.some(function (en) { return en.isIntersecting; })) return;
+      hatObs.disconnect();
+      var t0 = performance.now();
+      var tick = function (now) {
+        var p = Math.min(1, (now - t0) / 1800);
+        hatShow(59150 + 850 * (1 - Math.pow(1 - p, 3)));
+        if (p < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+      setInterval(function () { hatValue += 1; hatShow(hatValue); }, 11000);
+    }, { threshold: 0.3 });
+    hatObs.observe(hatCount);
+  }
+
+  /* ---------- Contact: book a call (online booking not connected yet) ---------- */
+  var bookCall = document.getElementById('bookCall');
+  if (bookCall) {
+    bookCall.addEventListener('click', function () {
+      bookCall.hidden = true;
+      document.getElementById('bookCallNote').hidden = false;
+    });
+  }
+
+  /* ---------- Terms: print ---------- */
+  var printTerms = document.getElementById('printTerms');
+  if (printTerms) printTerms.addEventListener('click', function () { window.print(); });
 
   /* ============================================================
      THE BUILDER

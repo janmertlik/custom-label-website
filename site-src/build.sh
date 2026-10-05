@@ -1,6 +1,6 @@
 #!/bin/bash
 # Rebuilds the assembled pages in ../site from the partials in this folder.
-# Usage: ./build.sh   (index.html is standalone and not rebuilt here)
+# Usage: ./build.sh
 cd "$(dirname "$0")"
 OUT=../site
 build() {
@@ -8,12 +8,34 @@ build() {
   sed "s|__TITLE__|$title|; s|__DESC__|$desc|" head.tpl > "$OUT/$page.html"
   cat header.part "$page.body.html" footer.part >> "$OUT/$page.html"
 }
-build what-we-make "What We Make · Custom Label by VOLTFUSE" "Caps, beanies, and facewear, built to be customized. Around 25 popular styles, every detail made your way."
-build how-it-works "How It Works · Custom Label by VOLTFUSE" "Concept to delivery without the headache. Four steps, accessible minimums, honest pricing, and rigorous quality control."
-build our-work "Our Work · Custom Label by VOLTFUSE" "Case studies, client roster, and real reviews. Product in the wild for brands like yours."
-build about "About · Custom Label by VOLTFUSE" "Fifteen years of headwear craft, rooted in Atlantic Canada. A merchandise partner, not a print shop."
-build start-a-project "Start a Project · Custom Label by VOLTFUSE" "Pick a style, choose your details, and get a free design proof within 24 hours. No commitment."
-build contact "Contact · Custom Label by VOLTFUSE" "Tell us about your brand. The fastest way to a quote. We usually reply the same day."
-build faq "FAQ · Custom Label by VOLTFUSE" "Minimums, pricing, turnaround, and how custom you can get. Straight answers to common questions."
+# Pages that moved to the product builder keep their old address as a redirect.
+redirect() {
+  page="$1"; url="$2"
+  cat > "$OUT/$page.html" <<REDIRECT
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Custom Label by VOLTFUSE</title>
+<meta name="robots" content="noindex">
+<link rel="canonical" href="$url">
+<meta http-equiv="refresh" content="0; url=$url">
+</head>
+<body>
+<p>This page has moved. <a href="$url">Continue to $url</a></p>
+<script>location.replace("$url");</script>
+</body>
+</html>
+REDIRECT
+}
+build index "Custom Label by VOLTFUSE · Custom Headwear" "Retail-quality custom headwear, fully managed from concept through production, quality control and delivery."
+build how-it-works "Process · Custom Label by VOLTFUSE" "How Custom Label by VOLTFUSE manages custom headwear from idea to mock-ups, production, quality control and delivery."
+build our-work "Our Work · Custom Label by VOLTFUSE" "See custom headwear projects for tourism brands, resorts, breweries, events and organizations across Canada."
+build about "About · Custom Label by VOLTFUSE" "VOLTFUSE started in Newfoundland in 2010 as a rider-owned brand. Custom Label puts 16 years of headwear experience behind your brand."
+build contact "Get in Touch · Custom Label by VOLTFUSE" "Tell Custom Label by VOLTFUSE about your brand and get personalized custom headwear mock-ups and unit pricing in about 24 hours."
+build faq "FAQ · Custom Label by VOLTFUSE" "Answers on minimums, process, pricing, turnaround, customization and shipping for Custom Label headwear."
+build terms "Terms and Conditions · Custom Label by VOLTFUSE" "Terms and conditions for custom headwear orders with Custom Label by VOLTFUSE."
 build 404 "Page Not Found · Custom Label by VOLTFUSE" "This page got lost in the mail."
+redirect what-we-make "https://build.voltfuse.com/products"
+redirect start-a-project "https://build.voltfuse.com/"
 echo "rebuilt into $OUT"

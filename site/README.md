@@ -19,26 +19,25 @@ in `assets/fonts/` (D-DIN is not on Google Fonts, so keep it self-hosted).
 
 ## Pages
 
-- `index.html` - Home, all 11 sections from the approved wireframe
-- `what-we-make.html` - catalogue with Caps / Beanies / Facewear tabs
-- `how-it-works.html` - process, minimums, dark QC band, pricing table, FAQ preview
-- `our-work.html` - roster, alternating case studies, filterable gallery, reviews
-- `about.html` - story, values, partnership, VOLTFUSE heritage band
-- `start-a-project.html` - the interactive Builder (see below)
-- `contact.html`, `faq.html`, `404.html`
+Content and section order follow the client's approved version (October 2026).
 
-The shared header/footer live in `../site-src/` as partials; edit there and run
-`../site-src/build.sh` to regenerate every page except `index.html` (standalone).
+- `index.html` - Home: hero, logo wall, film, two ways to begin, recent projects, process timeline, testimonials, FAQ
+- `how-it-works.html` - Process: four step cards, "you bring / we handle", pricing guide, FAQ
+- `our-work.html` - roster, filterable photo gallery with a viewer, four case studies that open in a dialog, client videos
+- `about.html` - story, the 10-year film, Custom Label today
+- `contact.html` - Get in Touch: message form, book a call, browse products
+- `faq.html` - four question groups
+- `terms.html` - terms and conditions
+- `404.html`
+- `what-we-make.html`, `start-a-project.html` - redirects only. Products and Start a Project now
+  live on the product builder at https://build.voltfuse.com/, so these old addresses forward there.
 
-## The Builder
+The shared header/footer live in `../site-src/` as partials; edit the `*.body.html` files and the
+partials there, then run `../site-src/build.sh` to regenerate every page, including the home page
+and the two redirects.
 
-`start-a-project.html` implements the dynamic minimum-order-quantity module that
-was flagged as open work in the handover (transcript section 8, item 4):
-colourway rows with quantity steppers, a live progress bar filling toward the
-100-unit minimum, a warning state under 100 that flips to success at 100+, a
-per-colour "min 50" flag, and a live per-unit estimate that follows the
-volume-pricing tiers per category. "Request proof" stays disabled until the
-minimum is met.
+Not connected yet: the contact form shows a confirmation but does not send anywhere, and
+"Book a Call" shows a holding message until an online booking link is supplied.
 
 ## Handover items addressed
 

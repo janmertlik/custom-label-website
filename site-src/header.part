@@ -4,13 +4,13 @@
   </a>
   <div class="header-right">
     <nav class="site-nav" id="siteNav" aria-label="Primary">
-      <a href="what-we-make.html">Products</a>
+      <a href="https://build.voltfuse.com/products">Products</a>
       <a href="our-work.html">Our Work</a>
       <a href="how-it-works.html">Process</a>
-      <a href="contact.html">Contact</a>
-      <div class="mobile-cta"><a class="btn btn-signal" href="start-a-project.html">Start a Project</a></div>
+      <a href="contact.html">Get in Touch</a>
+      <div class="mobile-cta"><a class="btn btn-signal" href="https://build.voltfuse.com/">Start a Project</a></div>
     </nav>
-    <a class="btn btn-signal btn-sm" href="start-a-project.html">Start a Project</a>
+    <a class="btn btn-signal btn-sm" href="https://build.voltfuse.com/">Start a Project</a>
     <button class="menu-btn" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </header>

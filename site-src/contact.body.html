@@ -1,145 +1,82 @@
 <main>
 
-  <!-- Header -->
-  <section class="band light page-hero">
-    <div class="wrap">
-      <span class="eyebrow">Get in touch</span>
-      <h1>Tell us about your brand.</h1>
-      <p class="sub">The fastest way to a quote. We usually reply the same day.</p>
+  <!-- Page header -->
+  <section class="band dark page-hero on-dark has-photo">
+    <div class="wrap hero-split">
+      <div>
+        <span class="eyebrow">Get in touch</span>
+        <h1>Let's talk about<br>your project</h1>
+        <p class="sub">Tell us what you're building. We'll help shape the right product, materials, and production approach.</p>
+      </div>
+      <div class="hero-print" aria-hidden="true"><div class="print" style="--tilt:-2deg;--focus:center"><img src="assets/img/web/hero-contact.jpg" alt=""></div></div>
     </div>
   </section>
 
   <!-- Contact form -->
-  <section class="band white">
-    <div class="wrap split" style="align-items:start">
-      <form class="reveal" data-demo="Message sent. We usually reply the same day.">
-        <div class="grid g2" style="gap:0 18px">
-          <div class="field"><label for="c-name">Name</label><input class="input" id="c-name" required placeholder="Your name"></div>
-          <div class="field"><label for="c-company">Company</label><input class="input" id="c-company" placeholder="e.g. Gros Morne Adventures"></div>
+  <section class="band white" id="contact-form">
+    <div class="wrap">
+      <div class="contact-grid">
+        <div class="reveal">
+          <span class="eyebrow">Send a message</span>
+          <h2>Let's build something great</h2>
+          <div class="next-steps">
+            <span class="mono-label">What happens next</span>
+            <ul>
+              <li><span class="tick" aria-hidden="true">&#10003;</span><span><strong>We review your project</strong><small>We look over your ideas and direction.</small></span></li>
+              <li><span class="tick" aria-hidden="true">&#10003;</span><span><strong>You confirm mockups + pricing</strong><small>Personalized concepts, refined with you before production.</small></span></li>
+              <li><span class="tick" aria-hidden="true">&#10003;</span><span><strong>We produce + deliver</strong><small>Approve the direction and we take it from there.</small></span></li>
+            </ul>
+          </div>
         </div>
-        <div class="field"><label for="c-email">Email</label><input class="input" id="c-email" type="email" required placeholder="you@yourbrand.ca"></div>
-        <div class="grid g2" style="gap:0 18px">
+        <form class="form-card reveal" data-demo="Message sent. We usually reply the same day.">
+          <h3>Tell us about your project</h3>
+          <div class="grid g2" style="gap:0 18px">
+            <div class="field"><label for="c-name">Name</label><input class="input" id="c-name" name="name" required placeholder="Your name"></div>
+            <div class="field"><label for="c-email">Email</label><input class="input" id="c-email" name="email" type="email" required placeholder="you@yourbrand.ca"></div>
+          </div>
+          <div class="field"><label for="c-company">Brand / company</label><input class="input" id="c-company" name="company" placeholder="Your brand or company"></div>
+          <div class="field"><label for="c-notes">What are you looking to create?</label><textarea class="textarea" id="c-notes" name="notes" rows="4" placeholder="Tell us about the products, colours, or how they'll be used..."></textarea></div>
           <div class="field">
-            <label for="c-interest">Product interest</label>
-            <select class="select" id="c-interest">
-              <option>Caps</option><option>Beanies</option><option>Facewear</option><option>Not sure yet</option>
+            <label for="c-qty">Estimated quantity</label>
+            <select class="select" id="c-qty" name="quantity">
+              <option value="">Choose one</option><option>100 units</option><option>200 units</option><option>500 units</option><option>1000+ units</option><option>Not sure yet</option>
             </select>
           </div>
           <div class="field">
-            <label for="c-qty">Estimated quantity</label>
-            <input class="input" id="c-qty" type="number" min="0" step="10" placeholder="100">
-            <p class="hint">Minimum is 100 units per style.</p>
+            <label class="upload" style="display:block;text-transform:none;letter-spacing:0;font-weight:400;font-size:.98rem;color:var(--g500);margin:0">
+              <input type="file" name="logo" hidden>
+              &#8682; &nbsp;<b>Upload inspiration / logo</b>
+              <span class="hint" style="display:block;margin-top:4px">Optional · SVG, PNG, AI, PDF or JPG · up to 20MB</span>
+            </label>
           </div>
-        </div>
-        <div class="field"><label for="c-notes">Project notes</label><textarea class="textarea" id="c-notes" rows="4" placeholder="Colours, logo, rough direction, timeline..."></textarea></div>
-        <div class="field">
-          <button type="button" class="picker-toggle" id="fancyToggle" aria-expanded="false" aria-controls="fancyPicker">
-            Anything that tickled your fancy?
-            <span class="pt-meta"><span class="picker-count" id="fancyCount" hidden></span><span class="pt-optional">Optional</span><span class="pm">+</span></span>
-          </button>
-          <div class="fancy-picker" id="fancyPicker">
-            <div class="fp-inner">
-              <p class="hint" style="margin:0 0 10px">Tick anything you liked the look of. We'll use it to read your taste.</p>
-              <div class="tabs mini" data-tabs="fancyPanes">
-                <button type="button" class="active" data-tab="fp-caps">Caps</button>
-                <button type="button" data-tab="fp-beanies">Beanies</button>
-                <button type="button" data-tab="fp-facewear">Facewear</button>
-              </div>
-              <div id="fancyPanes">
-                <div class="tabpane active" id="fp-caps">
-                  <div class="fp-grid">
-                    <label class="opt mini"><input type="checkbox" name="fancy" value="Cap &middot; 5-Panel"><img loading="lazy" decoding="async" src="assets/products/Cap/5-Panel.webp" alt=""><span class="ot">5-Panel</span></label>
-                    <label class="opt mini"><input type="checkbox" name="fancy" value="Cap &middot; Trucker"><img loading="lazy" decoding="async" src="assets/products/Cap/Classic-Trucker.webp" alt=""><span class="ot">Trucker</span></label>
-                    <label class="opt mini"><input type="checkbox" name="fancy" value="Cap &middot; Curved Classic"><img loading="lazy" decoding="async" src="assets/products/Cap/Curved-Classic.webp" alt=""><span class="ot">Curved Classic</span></label>
-                    <label class="opt mini"><input type="checkbox" name="fancy" value="Cap &middot; Colour Block"><img loading="lazy" decoding="async" src="assets/products/Cap/Color-Block.webp" alt=""><span class="ot">Colour Block</span></label>
-                    <label class="opt mini"><input type="checkbox" name="fancy" value="Cap &middot; Corduroy"><img loading="lazy" decoding="async" src="assets/products/Cap/Corduroy-Alan.webp" alt=""><span class="ot">Corduroy</span></label>
-                    <label class="opt mini"><input type="checkbox" name="fancy" value="Cap &middot; Waxed"><img loading="lazy" decoding="async" src="assets/products/Cap/Waxed-Alan-Cap.webp" alt=""><span class="ot">Waxed</span></label>
-                    <label class="opt mini"><input type="checkbox" name="fancy" value="Cap &middot; Runner"><img loading="lazy" decoding="async" src="assets/products/Cap/Runner.webp" alt=""><span class="ot">Runner</span></label>
-                    <label class="opt mini"><input type="checkbox" name="fancy" value="Cap &middot; Sou'wester"><img loading="lazy" decoding="async" src="assets/products/Cap/Sou-wester.webp" alt=""><span class="ot">Sou'wester</span></label>
-                    <label class="opt mini"><input type="checkbox" name="fancy" value="Cap &middot; Sherpa"><img loading="lazy" decoding="async" src="assets/products/Cap/Sherpa.webp" alt=""><span class="ot">Sherpa</span></label>
-                  </div>
-                </div>
-                <div class="tabpane" id="fp-beanies">
-                  <div class="fp-grid">
-                    <label class="opt mini"><input type="checkbox" name="fancy" value="Beanie &middot; Ribbed"><img loading="lazy" decoding="async" src="assets/products/Beanie/Ribbed-Beanie.webp" alt=""><span class="ot">Ribbed</span></label>
-                    <label class="opt mini"><input type="checkbox" name="fancy" value="Beanie &middot; Fisherman"><img loading="lazy" decoding="async" src="assets/products/Beanie/Fisherman.webp" alt=""><span class="ot">Fisherman</span></label>
-                    <label class="opt mini"><input type="checkbox" name="fancy" value="Beanie &middot; Heather"><img loading="lazy" decoding="async" src="assets/products/Beanie/Heather.webp" alt=""><span class="ot">Heather</span></label>
-                    <label class="opt mini"><input type="checkbox" name="fancy" value="Beanie &middot; Old School"><img loading="lazy" decoding="async" src="assets/products/Beanie/Old-School.webp" alt=""><span class="ot">Old School</span></label>
-                    <label class="opt mini"><input type="checkbox" name="fancy" value="Beanie &middot; Tamarack"><img loading="lazy" decoding="async" src="assets/products/Beanie/Tamarack.webp" alt=""><span class="ot">Tamarack</span></label>
-                    <label class="opt mini"><input type="checkbox" name="fancy" value="Beanie &middot; Yarn"><img loading="lazy" decoding="async" src="assets/products/Beanie/Yarn.webp" alt=""><span class="ot">Yarn</span></label>
-                  </div>
-                </div>
-                <div class="tabpane" id="fp-facewear">
-                  <div class="fp-grid">
-                    <label class="opt mini"><input type="checkbox" name="fancy" value="Facewear &middot; Balaclava"><img loading="lazy" decoding="async" src="assets/products/Facewear/Balaclava.webp" alt=""><span class="ot">Balaclava</span></label>
-                    <label class="opt mini"><input type="checkbox" name="fancy" value="Facewear &middot; Tube"><img loading="lazy" decoding="async" src="assets/products/Facewear/Neck-Tube.webp" alt=""><span class="ot">Tube</span></label>
-                    <label class="opt mini"><input type="checkbox" name="fancy" value="Facewear &middot; Polar Hood"><img loading="lazy" decoding="async" src="assets/products/Facewear/Polar-Hood.webp" alt=""><span class="ot">Polar Hood</span></label>
-                    <label class="opt mini"><input type="checkbox" name="fancy" value="Facewear &middot; Bucket"><img loading="lazy" decoding="async" src="assets/products/Cap/Bucket.webp" alt=""><span class="ot">Bucket</span></label>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="field">
-          <label>Logo upload</label>
-          <div class="upload" role="button" tabindex="0">&#8682; &nbsp;Drag your logo here, or <b>browse</b><div class="hint" style="margin-top:4px">SVG, PNG or AI · up to 20MB</div></div>
-        </div>
-        <button class="btn btn-signal btn-lg" type="submit">Send message</button>
-      </form>
-
-      <aside class="reveal">
-        <div class="feature-card">
-          <span class="chip">Direct</span>
-          <p style="margin:16px 0 6px"><b>Email.</b> <a href="mailto:jan@get-coding.ca">jan@get-coding.ca</a></p>
-          <p style="margin:0 0 6px"><b>Phone.</b> <a href="tel:+17099861492">709-986-1492</a></p>
-          <p style="margin:0"><b>Studio.</b> 2nd Floor, 170 Water Street, St. John's, NL A1C 1A9</p>
-        </div>
-        <div class="alert info" style="margin-top:18px"><span class="ai">&#9432;</span><div><b>Response time.</b> We usually reply the same day, and your free design proof lands within 24 hours of a green light.</div></div>
-        <div class="quote" style="margin-top:18px">
-          <blockquote>"Easy, quick design discussions to get you from idea to item in very short order."</blockquote>
-          <div class="by">
-            <img loading="lazy" decoding="async" src="assets/clients/LB.png" alt="Landwash Brewery logo">
-            <div><div class="nm">Landwash Brewery</div><div class="rl">Mount Pearl, NL</div></div>
-          </div>
-        </div>
-      </aside>
+          <button class="btn btn-signal btn-lg" type="submit">Start the conversation</button>
+        </form>
+      </div>
     </div>
   </section>
 
-  <!-- FAQ preview -->
+  <!-- Other ways to start -->
   <section class="band light">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <span class="eyebrow">Before you write</span>
-        <h2>Quick answers.</h2>
+    <div class="wrap contact-options">
+      <div class="option-card lead reveal">
+        <span class="eyebrow">Prefer to talk it through?</span>
+        <h2>Book a quick call.</h2>
+        <p>Choose a time that works for you and we can talk through your project, products and next steps.</p>
+        <button class="btn btn-outline btn-lg" type="button" id="bookCall">Book a Call</button>
+        <p id="bookCallNote" hidden style="margin:0;color:var(--g700)">Online booking is being set up. Send us a message above and we'll find a time together.</p>
       </div>
-      <div class="acc reveal" data-acc style="max-width:720px">
-        <div class="item">
-          <button class="q">What is your minimum?<span class="pm">+</span></button>
-          <div class="a"><div class="inner">100 units per style, which allows two colours, 50 units per colour.</div></div>
+      <aside class="option-card reveal">
+        <span class="eyebrow">Rather browse first?</span>
+        <h3>Start with products.</h3>
+        <p>Explore styles and choose what fits.</p>
+        <div class="product-thumbs" aria-hidden="true">
+          <img loading="lazy" decoding="async" src="assets/products/Cap/Classic-Trucker.webp" alt="">
+          <img loading="lazy" decoding="async" src="assets/products/Beanie/Ribbed-Beanie.webp" alt="">
+          <img loading="lazy" decoding="async" src="assets/products/Cap/Curved-Classic.webp" alt="">
+          <img loading="lazy" decoding="async" src="assets/products/Beanie/Berg.webp" alt="">
         </div>
-        <div class="item">
-          <button class="q">What does it cost?<span class="pm">+</span></button>
-          <div class="a"><div class="inner">Caps from $16, beanies from $13, facewear from $12 per unit at 100 units, with volume discounts.</div></div>
-        </div>
-        <div class="item">
-          <button class="q">What is your turnaround?<span class="pm">+</span></button>
-          <div class="a"><div class="inner">About six weeks, concept to delivery.</div></div>
-        </div>
-      </div>
-      <p class="reveal" style="margin-top:28px"><a class="btn btn-outline" href="faq.html">See all questions</a></p>
-    </div>
-  </section>
-
-  <!-- CTA band -->
-  <section class="band dark cta-band">
-    <div class="wrap reveal">
-      <h2>Rather start with the product?</h2>
-      <p>Pick a style and build it out. A free proof follows in 24 hours.</p>
-      <div class="actions">
-        <a class="btn btn-signal btn-lg" href="start-a-project.html">Start a Project</a>
-      </div>
+        <a class="textlink" href="https://build.voltfuse.com/products">Browse products &#10140;</a>
+      </aside>
     </div>
   </section>
 
